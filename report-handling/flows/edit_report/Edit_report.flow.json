@@ -1,0 +1,349 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "temp.error == true",
+        "node": "error.flow.json"
+      }
+    ]
+  },
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "d31c5b1afe",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "show_reports"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "4ef1f348c4",
+      "name": "show_reports",
+      "next": [
+        {
+          "condition": "true",
+          "node": "check_report_count"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-g-3N5g",
+        "Database/fetch_reports {\"report_type\":\"active\"}",
+        "Util/display_reports {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "16b62f5c34",
+      "name": "choose_report",
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse_choice"
+        }
+      ],
+      "onEnter": [
+        "Choices/choose_report {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "adaa104c92",
+      "name": "parse_choice",
+      "next": [
+        {
+          "condition": "temp.to_edit    != \"Annulla modifiche\"",
+          "node": "check_if_report_exists"
+        },
+        {
+          "condition": "temp.to_edit == \"Annulla modifiche\"",
+          "node": "abort"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"to_edit\",\"value\":\"{{{event.payload.text}}}\"}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "4c54a94e3b",
+      "name": "abort",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-il88UD"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "skill-477a0a",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "ask_what_to_edit",
+      "flow": "skills/choice-477a0a.flow.json",
+      "next": [
+        {
+          "caption": "User picked [location]",
+          "condition": "temp['skill-choice-ret-gc0u0u24yy'] == \"location\"",
+          "node": "edit_report/subflows/Edit_location.flow.json"
+        },
+        {
+          "caption": "User picked [descrip...]",
+          "condition": "temp['skill-choice-ret-gc0u0u24yy'] == \"description\"",
+          "node": "edit_report/subflows/Edit_description.flow.json"
+        },
+        {
+          "caption": "User picked [photo]",
+          "condition": "temp['skill-choice-ret-gc0u0u24yy'] == \"photo\"",
+          "node": "edit_report/subflows/Edit_photos.flow.json"
+        },
+        {
+          "caption": "User picked [end]",
+          "condition": "temp['skill-choice-ret-gc0u0u24yy'] == \"end\"",
+          "node": "confirm_all_edits"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-gc0u0u24yy'] == \"abort\"",
+          "node": "abort"
+        },
+        {
+          "caption": "User picked [remove_...]",
+          "condition": "temp['skill-choice-ret-gc0u0u24yy'] == \"remove_report\"",
+          "node": "confirm_deletion"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "skill-d1ea89",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_all_edits",
+      "flow": "skills/choice-d1ea89.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-v0h6gs18qz'] == \"confirm\"",
+          "node": "apply_edits"
+        },
+        {
+          "caption": "User picked [keep_ed...]",
+          "condition": "temp['skill-choice-ret-v0h6gs18qz'] == \"keep_editing\"",
+          "node": "ask_what_to_edit"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-v0h6gs18qz'] == \"abort\"",
+          "node": "abort"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "b2d15d8749",
+      "name": "apply_edits",
+      "next": [
+        {
+          "condition": "true",
+          "node": "edit_success"
+        }
+      ],
+      "onEnter": [
+        "Database/edit_report {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "skill-fad9ef",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_deletion",
+      "flow": "skills/choice-fad9ef.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-e8pv1mix7y'] == \"confirm\"",
+          "node": "delete_report"
+        },
+        {
+          "caption": "User picked [abort_d...]",
+          "condition": "temp['skill-choice-ret-e8pv1mix7y'] == \"abort_deletion\"",
+          "node": "ask_what_to_edit"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "23f540695b",
+      "name": "delete_report",
+      "next": [
+        {
+          "condition": "true",
+          "node": "removal_success"
+        }
+      ],
+      "onEnter": [
+        "Database/delete_report {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "02f078b2b0",
+      "name": "check_if_report_exists",
+      "next": [
+        {
+          "condition": "temp.is_report   == true",
+          "node": "prepare_photos"
+        },
+        {
+          "condition": "temp.is_report   == false",
+          "node": "invalid_report"
+        }
+      ],
+      "onEnter": [
+        "Util/check_if_report_exists {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "ebe28d90c8",
+      "name": "invalid_report",
+      "next": [
+        {
+          "condition": "true",
+          "node": "choose_report"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-o_pUFH"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "3d81a91fe4",
+      "name": "check_report_count",
+      "next": [
+        {
+          "condition": "temp.reports == null || temp.reports.length == 0",
+          "node": "no_reports"
+        },
+        {
+          "condition": "true",
+          "node": "choose_report"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "012e053c6a",
+      "name": "no_reports",
+      "next": [],
+      "onEnter": [
+        "say #!builtin_text--A9teV"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "203a13c624",
+      "name": "prepare_photos",
+      "next": [
+        {
+          "condition": "true",
+          "node": "ask_what_to_edit"
+        }
+      ],
+      "onEnter": [
+        "Database/fetch_photos {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "1e58197a0a",
+      "name": "edit_success",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-B7W9GE"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "4963dc74c8",
+      "name": "removal_success",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-P1CEhR"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "1d4f986eac",
+      "name": "return",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json#should_continue"
+        }
+      ],
+      "onEnter": [
+        "builtin/resetSession {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

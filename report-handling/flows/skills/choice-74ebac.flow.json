@@ -1,0 +1,104 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "qzw3h5tfo5",
+    "contentId": "builtin_single-choice-2Li6F6",
+    "invalidContentId": "builtin_text-MFeDxv",
+    "keywords": {
+      "confirm": [
+        "confirm",
+        "Conferma"
+      ],
+      "edit": [
+        "edit",
+        "Modifica ancora"
+      ],
+      "abort_single": [
+        "abort_single",
+        "Annulla questa modifica"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 100,
+      "repeatChoicesOnInvalid": true,
+      "variableName": ""
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-2Li6F6 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "188406"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"qzw3h5tfo5\",\"contentId\":\"builtin_single-choice-2Li6F6\",\"invalidContentId\":\"builtin_text-MFeDxv\",\"keywords\":{\"confirm\":[\"confirm\",\"Conferma\"],\"edit\":[\"edit\",\"Modifica ancora\"],\"abort_single\":[\"abort_single\",\"Annulla questa modifica\"]},\"config\":{\"nbMaxRetries\":100,\"repeatChoicesOnInvalid\":true,\"variableName\":\"\"}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-qzw3h5tfo5'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "350336"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"qzw3h5tfo5\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-qzw3h5tfo5']) > Number(10)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "555266"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-MFeDxv {}",
+        "say #!builtin_single-choice-2Li6F6 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "306933"
+    }
+  ]
+}

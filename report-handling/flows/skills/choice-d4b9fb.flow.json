@@ -1,0 +1,108 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "2evo5xa4um",
+    "contentId": "builtin_single-choice-os6Vf8",
+    "invalidContentId": "builtin_text-MFeDxv",
+    "keywords": {
+      "new_report": [
+        "new_report",
+        "Nuova segnalazione"
+      ],
+      "report_status": [
+        "report_status",
+        "Visualizza segnalazioni"
+      ],
+      "edit_report": [
+        "edit_report",
+        "Modifica segnalazione"
+      ],
+      "delete_account": [
+        "delete_account",
+        "Cancella account"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 100,
+      "repeatChoicesOnInvalid": true,
+      "variableName": "2evo5xa4um"
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-os6Vf8 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "581391"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"2evo5xa4um\",\"contentId\":\"builtin_single-choice-os6Vf8\",\"invalidContentId\":\"builtin_text-MFeDxv\",\"keywords\":{\"new_report\":[\"new_report\",\"Nuova segnalazione\"],\"report_status\":[\"report_status\",\"Visualizza segnalazioni\"],\"edit_report\":[\"edit_report\",\"Modifica segnalazione\"],\"delete_account\":[\"delete_account\",\"Cancella account\"]},\"config\":{\"nbMaxRetries\":100,\"repeatChoicesOnInvalid\":true,\"variableName\":\"2evo5xa4um\"}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-2evo5xa4um'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "091608"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"2evo5xa4um\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-2evo5xa4um']) > Number(10)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "158332"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-MFeDxv {}",
+        "say #!builtin_single-choice-os6Vf8 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "171557"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "aykea1e2og",
+    "contentId": "builtin_single-choice-LxbRiF",
+    "invalidContentId": "builtin_text-MFeDxv",
+    "keywords": {
+      "coords": [
+        "coords",
+        "Invio coordinate GPS"
+      ],
+      "desc": [
+        "desc",
+        "Descrizione testuale"
+      ],
+      "abort": [
+        "abort",
+        "Annulla segnalazione"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 100,
+      "repeatChoicesOnInvalid": true,
+      "variableName": ""
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-LxbRiF {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "208543"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"aykea1e2og\",\"contentId\":\"builtin_single-choice-LxbRiF\",\"invalidContentId\":\"builtin_text-MFeDxv\",\"keywords\":{\"coords\":[\"coords\",\"Invio coordinate GPS\"],\"desc\":[\"desc\",\"Descrizione testuale\"],\"abort\":[\"abort\",\"Annulla segnalazione\"]},\"config\":{\"nbMaxRetries\":100,\"repeatChoicesOnInvalid\":true,\"variableName\":\"\"}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-aykea1e2og'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "118714"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"aykea1e2og\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-aykea1e2og']) > Number(10)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "502066"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-MFeDxv {}",
+        "say #!builtin_single-choice-LxbRiF {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "531645"
+    }
+  ]
+}

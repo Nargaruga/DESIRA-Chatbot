@@ -1,0 +1,104 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "z004khoc8c",
+    "contentId": "builtin_single-choice-JB-Zcy",
+    "invalidContentId": "builtin_text-MFeDxv",
+    "keywords": {
+      "type_phone": [
+        "type_phone",
+        "Numero di telefono"
+      ],
+      "type_email": [
+        "type_email",
+        "Indirizzo e-mail"
+      ],
+      "abort": [
+        "abort",
+        "Annulla registrazione"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 100,
+      "repeatChoicesOnInvalid": true,
+      "variableName": ""
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-JB-Zcy {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "071990"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"z004khoc8c\",\"contentId\":\"builtin_single-choice-JB-Zcy\",\"invalidContentId\":\"builtin_text-MFeDxv\",\"keywords\":{\"type_phone\":[\"type_phone\",\"Numero di telefono\"],\"type_email\":[\"type_email\",\"Indirizzo e-mail\"],\"abort\":[\"abort\",\"Annulla registrazione\"]},\"config\":{\"nbMaxRetries\":100,\"repeatChoicesOnInvalid\":true,\"variableName\":\"\"}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-z004khoc8c'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "108520"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"z004khoc8c\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-z004khoc8c']) > Number(10)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "519504"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-MFeDxv {}",
+        "say #!builtin_single-choice-JB-Zcy {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "576218"
+    }
+  ]
+}

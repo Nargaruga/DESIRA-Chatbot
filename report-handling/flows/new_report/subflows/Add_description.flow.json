@@ -1,0 +1,89 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "894ef51e14",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "request_description"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "b2b382b694",
+      "name": "request_description",
+      "next": [
+        {
+          "condition": "temp.is_text == true",
+          "node": "confirm_description"
+        },
+        {
+          "condition": "temp.is_text == false",
+          "node": "description_not_text"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-G3Zw33"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"description\",\"value\":\"{{event.payload.text}}\"}",
+        "Validation/check_if_text {}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "689b634e05",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_description",
+      "flow": "skills/choice-2bc366.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-q7g22o5e0f'] == \"confirm\"",
+          "node": "new_report/New_report.flow.json#description_added"
+        },
+        {
+          "caption": "User picked [edit]",
+          "condition": "temp['skill-choice-ret-q7g22o5e0f'] == \"edit\"",
+          "node": "request_description"
+        },
+        {
+          "caption": "User picked [abort_r...]",
+          "condition": "temp['skill-choice-ret-q7g22o5e0f'] == \"abort_report\"",
+          "node": "new_report/New_report.flow.json#report_aborted"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "726aea6245",
+      "name": "description_not_text",
+      "next": [
+        {
+          "condition": "true",
+          "node": "request_description"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-yqq3H1"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "uvcp0cc1ji",
+    "contentId": "builtin_single-choice-xchFWp",
+    "invalidContentId": "builtin_text-MFeDxv",
+    "keywords": {
+      "add": [
+        "add",
+        "Aggiungi foto"
+      ],
+      "remove": [
+        "remove",
+        "Elimina foto"
+      ],
+      "abort_single": [
+        "abort_single",
+        "Annulla questa modifica"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 100,
+      "repeatChoicesOnInvalid": true,
+      "variableName": ""
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-xchFWp {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "570011"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"uvcp0cc1ji\",\"contentId\":\"builtin_single-choice-xchFWp\",\"invalidContentId\":\"builtin_text-MFeDxv\",\"keywords\":{\"add\":[\"add\",\"Aggiungi foto\"],\"remove\":[\"remove\",\"Elimina foto\"],\"abort_single\":[\"abort_single\",\"Annulla questa modifica\"]},\"config\":{\"nbMaxRetries\":100,\"repeatChoicesOnInvalid\":true,\"variableName\":\"\"}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-uvcp0cc1ji'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "174147"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"uvcp0cc1ji\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-uvcp0cc1ji']) > Number(10)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "764604"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-MFeDxv {}",
+        "say #!builtin_single-choice-xchFWp {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "654337"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": []
+  },
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "34feeefc0d",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "ask_location_mode"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "ccc927b7aa",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "ask_location_mode",
+      "flow": "skills/choice-6490df.flow.json",
+      "next": [
+        {
+          "caption": "User picked [coords]",
+          "condition": "temp['skill-choice-ret-s9qd19vrr2'] == \"coords\"",
+          "node": "receive_coordinates"
+        },
+        {
+          "caption": "User picked [desc]",
+          "condition": "temp['skill-choice-ret-s9qd19vrr2'] == \"desc\"",
+          "node": "receive_location_description"
+        },
+        {
+          "caption": "User picked [abort_s...]",
+          "condition": "temp['skill-choice-ret-s9qd19vrr2'] == \"abort_single\"",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "6cc55ebfa0",
+      "name": "receive_coordinates",
+      "next": [
+        {
+          "condition": "temp.is_location  == true",
+          "node": "confirm_location"
+        },
+        {
+          "condition": "temp.is_location  == false",
+          "node": "invalid_coordinates"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-PdtuOA"
+      ],
+      "onReceive": [
+        "Util/get_coordinates {}",
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"is_coordinates\",\"value\":\"true\"}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "8c3e60d997",
+      "name": "receive_location_description",
+      "next": [
+        {
+          "condition": "temp.is_text == true",
+          "node": "confirm_location"
+        },
+        {
+          "condition": "temp.is_text == false",
+          "node": "loc_description_not_text"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-q6h3cT"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"location\",\"value\":\"{{event.payload.text}}\"}",
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"is_coordinates\",\"value\":\"false\"}",
+        "Validation/check_if_text {}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "eed70d9a61",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_location",
+      "flow": "skills/choice-74ebac.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-qzw3h5tfo5'] == \"confirm\"",
+          "node": "location_edited"
+        },
+        {
+          "caption": "User picked [edit]",
+          "condition": "temp['skill-choice-ret-qzw3h5tfo5'] == \"edit\"",
+          "node": "ask_location_mode"
+        },
+        {
+          "caption": "User picked [abort_s...]",
+          "condition": "temp['skill-choice-ret-qzw3h5tfo5'] == \"abort_single\"",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "f8d02eb999",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "invalid_coordinates",
+      "flow": "skills/choice-725ec6.flow.json",
+      "next": [
+        {
+          "caption": "User picked [retry]",
+          "condition": "temp['skill-choice-ret-h3djdn4y29'] == \"retry\"",
+          "node": "receive_coordinates"
+        },
+        {
+          "caption": "User picked [change_...]",
+          "condition": "temp['skill-choice-ret-h3djdn4y29'] == \"change_mode\"",
+          "node": "ask_location_mode"
+        },
+        {
+          "caption": "User picked [abort_s...]",
+          "condition": "temp['skill-choice-ret-h3djdn4y29'] == \"abort_single\"",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "3518792660",
+      "name": "location_edited",
+      "next": [
+        {
+          "condition": "true",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        }
+      ],
+      "onEnter": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"location_edited\",\"value\":\" true\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "666043d56d",
+      "name": "loc_description_not_text",
+      "next": [
+        {
+          "condition": "true",
+          "node": "receive_location_description"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-yqq3H1"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

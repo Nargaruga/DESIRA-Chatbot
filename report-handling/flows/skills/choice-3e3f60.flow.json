@@ -1,0 +1,104 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "raick5kw42",
+    "contentId": "builtin_single-choice-fnuNit",
+    "invalidContentId": "builtin_text-rL0dB6",
+    "keywords": {
+      "confirm": [
+        "confirm",
+        "Conferma"
+      ],
+      "edit": [
+        "edit",
+        "Cambia foto"
+      ],
+      "abort_single": [
+        "abort_single",
+        "Annulla questa modifica"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 100,
+      "repeatChoicesOnInvalid": true,
+      "variableName": ""
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-fnuNit {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "311676"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"raick5kw42\",\"contentId\":\"builtin_single-choice-fnuNit\",\"invalidContentId\":\"builtin_text-rL0dB6\",\"keywords\":{\"confirm\":[\"confirm\",\"Conferma\"],\"edit\":[\"edit\",\"Cambia foto\"],\"abort_single\":[\"abort_single\",\"Annulla questa modifica\"]},\"config\":{\"nbMaxRetries\":100,\"repeatChoicesOnInvalid\":true,\"variableName\":\"\"}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-raick5kw42'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "471079"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"raick5kw42\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-raick5kw42']) > Number(10)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "667335"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-rL0dB6 {}",
+        "say #!builtin_single-choice-fnuNit {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "877992"
+    }
+  ]
+}

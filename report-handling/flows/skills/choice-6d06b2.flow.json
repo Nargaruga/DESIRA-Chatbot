@@ -1,0 +1,108 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "btunf2z3va",
+    "contentId": "builtin_single-choice-Vvdiq9",
+    "invalidContentId": "builtin_text-MFeDxv",
+    "keywords": {
+      "confirm": [
+        "confirm",
+        "Sì"
+      ],
+      "edit": [
+        "edit",
+        "No, modifica"
+      ],
+      "abort_phone": [
+        "abort_phone",
+        "Annulla inserimento numero di telefono"
+      ],
+      "abort": [
+        "abort",
+        "Annulla"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 100,
+      "repeatChoicesOnInvalid": true,
+      "variableName": ""
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-Vvdiq9 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "816526"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"btunf2z3va\",\"contentId\":\"builtin_single-choice-Vvdiq9\",\"invalidContentId\":\"builtin_text-MFeDxv\",\"keywords\":{\"confirm\":[\"confirm\",\"Sì\"],\"edit\":[\"edit\",\"No, modifica\"],\"abort_phone\":[\"abort_phone\",\"Annulla inserimento numero di telefono\"],\"abort\":[\"abort\",\"Annulla\"]},\"config\":{\"nbMaxRetries\":100,\"repeatChoicesOnInvalid\":true,\"variableName\":\"\"}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-btunf2z3va'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "854273"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"btunf2z3va\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-btunf2z3va']) > Number(10)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "385857"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-MFeDxv {}",
+        "say #!builtin_single-choice-Vvdiq9 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "076138"
+    }
+  ]
+}

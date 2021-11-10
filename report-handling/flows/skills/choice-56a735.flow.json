@@ -1,0 +1,108 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "ykx0ixcqxy",
+    "contentId": "builtin_single-choice-SyyLiO",
+    "invalidContentId": "builtin_text-MFeDxv",
+    "keywords": {
+      "confirm": [
+        "confirm",
+        "Sì"
+      ],
+      "edit": [
+        "edit",
+        "No, modifica"
+      ],
+      "abort_email": [
+        "abort_email",
+        "Annulla inserimento indirizzo e-mail"
+      ],
+      "abort": [
+        "abort",
+        "Annulla"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 100,
+      "repeatChoicesOnInvalid": true,
+      "variableName": ""
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-SyyLiO {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "952126"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"ykx0ixcqxy\",\"contentId\":\"builtin_single-choice-SyyLiO\",\"invalidContentId\":\"builtin_text-MFeDxv\",\"keywords\":{\"confirm\":[\"confirm\",\"Sì\"],\"edit\":[\"edit\",\"No, modifica\"],\"abort_email\":[\"abort_email\",\"Annulla inserimento indirizzo e-mail\"],\"abort\":[\"abort\",\"Annulla\"]},\"config\":{\"nbMaxRetries\":100,\"repeatChoicesOnInvalid\":true,\"variableName\":\"\"}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-ykx0ixcqxy'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "304274"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"ykx0ixcqxy\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-ykx0ixcqxy']) > Number(10)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "545264"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-MFeDxv {}",
+        "say #!builtin_single-choice-SyyLiO {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "190947"
+    }
+  ]
+}

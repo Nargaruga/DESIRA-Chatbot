@@ -1,0 +1,139 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "6c67fa01f7",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "ask_surname"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "d0ab45bcf6",
+      "name": "ask_surname",
+      "next": [
+        {
+          "condition": "temp.is_text == true",
+          "node": "ask_name"
+        },
+        {
+          "condition": "temp.is_text == false",
+          "node": "surname_must_be_text"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-jpgmZa"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"last_name\",\"value\":\"{{{event.payload.text}}}\"}",
+        "Validation/check_if_text {}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "a862a707f5",
+      "name": "ask_name",
+      "next": [
+        {
+          "condition": "temp.is_text == true",
+          "node": "confirm_name"
+        },
+        {
+          "condition": "temp.is_text == false",
+          "node": "name_must_be_text"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-UIjALE"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"first_name\",\"value\":\"{{{event.payload.text}}}\"}",
+        "Validation/check_if_text {}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "1f916f660a",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_name",
+      "flow": "skills/choice-2bb003.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-g2px00ai8z'] == \"confirm\"",
+          "node": "personal_info_inserted"
+        },
+        {
+          "caption": "User picked [edit]",
+          "condition": "temp['skill-choice-ret-g2px00ai8z'] == \"edit\"",
+          "node": "ask_surname"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-g2px00ai8z'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "c393f08026",
+      "name": "surname_must_be_text",
+      "next": [
+        {
+          "condition": "true",
+          "node": "ask_surname"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-yqq3H1"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "cedadbbe58",
+      "name": "name_must_be_text",
+      "next": [
+        {
+          "condition": "true",
+          "node": "ask_name"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-yqq3H1"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "71989b02a2",
+      "name": "personal_info_inserted",
+      "next": [
+        {
+          "condition": "true",
+          "node": "registration/Registration.flow.json#personal_info_inserted"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

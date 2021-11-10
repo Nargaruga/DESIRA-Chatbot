@@ -1,0 +1,110 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "temp.error == true",
+        "node": "error.flow.json"
+      }
+    ]
+  },
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "cf4cf7a17c",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "confirm_deletion"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "skill-e0032d",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_deletion",
+      "flow": "skills/choice-e0032d.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-00f3r0xeq3'] == \"confirm\"",
+          "node": "delete_account"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-00f3r0xeq3'] == \"abort\"",
+          "node": "abort"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "8d8465b91a",
+      "name": "delete_account",
+      "next": [
+        {
+          "condition": "true",
+          "node": "deletion_successful"
+        }
+      ],
+      "onEnter": [
+        "Database/delete_user {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "b2c179514d",
+      "name": "deletion_successful",
+      "next": [],
+      "onEnter": [
+        "say #!builtin_text-84BnnQ"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "c07e1c7ae9",
+      "name": "abort",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-8_YNu6"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "5df6427b03",
+      "name": "return",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json#should_continue"
+        }
+      ],
+      "onEnter": [
+        "builtin/resetSession {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

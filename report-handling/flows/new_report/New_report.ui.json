@@ -1,0 +1,255 @@
+{
+  "nodes": [
+    {
+      "id": "7503643e4d",
+      "position": {
+        "x": 390,
+        "y": 160
+      }
+    },
+    {
+      "id": "skill-8a1047",
+      "position": {
+        "x": 1415,
+        "y": 110
+      }
+    },
+    {
+      "id": "4ad610204d",
+      "position": {
+        "x": 2105,
+        "y": 125
+      }
+    },
+    {
+      "id": "skill-31f035",
+      "position": {
+        "x": 2395,
+        "y": 120
+      }
+    },
+    {
+      "id": "da7bfdb151",
+      "position": {
+        "x": 2700,
+        "y": 85
+      }
+    },
+    {
+      "id": "5ceee46df1",
+      "position": {
+        "x": 3005,
+        "y": 55
+      }
+    },
+    {
+      "id": "960432bd61",
+      "position": {
+        "x": 3695,
+        "y": 280
+      }
+    },
+    {
+      "id": "f135e6f6d0",
+      "position": {
+        "x": 3345,
+        "y": 40
+      }
+    },
+    {
+      "id": "d8d6f137a4",
+      "position": {
+        "x": 3355,
+        "y": 405
+      }
+    },
+    {
+      "id": "5f86bccb06",
+      "position": {
+        "x": 780,
+        "y": 155
+      }
+    },
+    {
+      "id": "3202de48a3",
+      "position": {
+        "x": 1165,
+        "y": 155
+      }
+    },
+    {
+      "id": "f92782710a",
+      "position": {
+        "x": 1805,
+        "y": 155
+      }
+    }
+  ],
+  "links": [
+    {
+      "source": "3202de48a3",
+      "sourcePort": "out0",
+      "target": "skill-8a1047",
+      "points": [
+        {
+          "x": 1365,
+          "y": 199
+        },
+        {
+          "x": 1416,
+          "y": 128
+        }
+      ]
+    },
+    {
+      "source": "4ad610204d",
+      "sourcePort": "out0",
+      "target": "skill-31f035",
+      "points": [
+        {
+          "x": 2305,
+          "y": 237
+        },
+        {
+          "x": 2396,
+          "y": 138
+        }
+      ]
+    },
+    {
+      "source": "5ceee46df1",
+      "sourcePort": "out0",
+      "target": "f135e6f6d0",
+      "points": [
+        {
+          "x": 3205,
+          "y": 154
+        },
+        {
+          "x": 3346,
+          "y": 58
+        }
+      ]
+    },
+    {
+      "source": "d8d6f137a4",
+      "sourcePort": "out0",
+      "target": "960432bd61",
+      "points": [
+        {
+          "x": 3555,
+          "y": 479
+        },
+        {
+          "x": 3696,
+          "y": 298
+        }
+      ]
+    },
+    {
+      "source": "da7bfdb151",
+      "sourcePort": "out0",
+      "target": "5ceee46df1",
+      "points": [
+        {
+          "x": 2900,
+          "y": 159
+        },
+        {
+          "x": 3006,
+          "y": 73
+        }
+      ]
+    },
+    {
+      "source": "f135e6f6d0",
+      "sourcePort": "out0",
+      "target": "960432bd61",
+      "points": [
+        {
+          "x": 3545,
+          "y": 184
+        },
+        {
+          "x": 3696,
+          "y": 298
+        }
+      ]
+    },
+    {
+      "source": "f92782710a",
+      "sourcePort": "out0",
+      "target": "4ad610204d",
+      "points": [
+        {
+          "x": 2005,
+          "y": 199
+        },
+        {
+          "x": 2106,
+          "y": 143
+        }
+      ]
+    },
+    {
+      "source": "skill-31f035",
+      "sourcePort": "out1",
+      "target": "d8d6f137a4",
+      "points": [
+        {
+          "x": 2595,
+          "y": 194
+        },
+        {
+          "x": 3356,
+          "y": 423
+        }
+      ]
+    },
+    {
+      "source": "skill-31f035",
+      "sourcePort": "out0",
+      "target": "da7bfdb151",
+      "points": [
+        {
+          "x": 2595,
+          "y": 164
+        },
+        {
+          "x": 2701,
+          "y": 103
+        }
+      ]
+    },
+    {
+      "source": "skill-8a1047",
+      "sourcePort": "out2",
+      "target": "d8d6f137a4",
+      "points": [
+        {
+          "x": 1615,
+          "y": 215
+        },
+        {
+          "x": 3356,
+          "y": 423
+        }
+      ]
+    },
+    {
+      "source": "skill-8a1047",
+      "sourcePort": "out1",
+      "target": "f92782710a",
+      "points": [
+        {
+          "x": 1615,
+          "y": 184
+        },
+        {
+          "x": 1806,
+          "y": 173
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "temp.error == true",
+        "node": "error.flow.json"
+      }
+    ]
+  },
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "7503643e4d",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "new_report/subflows/Add_location.flow.json"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "skill-8a1047",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "should_add_photo",
+      "flow": "skills/choice-8a1047.flow.json",
+      "next": [
+        {
+          "caption": "User picked [yes]",
+          "condition": "temp['skill-choice-ret-ocfp1mbcf3'] == \"yes\"",
+          "node": "new_report/subflows/Add_photos.flow.json"
+        },
+        {
+          "caption": "User picked [no]",
+          "condition": "temp['skill-choice-ret-ocfp1mbcf3'] == \"no\"",
+          "node": "photo_insertion_over"
+        },
+        {
+          "caption": "User picked [abort_r...]",
+          "condition": "temp['skill-choice-ret-ocfp1mbcf3'] == \"abort_report\"",
+          "node": "report_aborted"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "4ad610204d",
+      "name": "review_report",
+      "next": [
+        {
+          "condition": "true",
+          "node": "confirm_report"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-XgoRms"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "skill-31f035",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_report",
+      "flow": "skills/choice-31f035.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-mtg1ixieix'] == \"confirm\"",
+          "node": "add_report"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-mtg1ixieix'] == \"abort\"",
+          "node": "report_aborted"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "da7bfdb151",
+      "name": "add_report",
+      "next": [
+        {
+          "condition": "true",
+          "node": "report_added"
+        }
+      ],
+      "onEnter": [
+        "Database/add_report {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "5ceee46df1",
+      "name": "report_added",
+      "next": [
+        {
+          "condition": "true",
+          "node": "show_reports"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-qQgAVj"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "960432bd61",
+      "name": "return",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json#should_continue"
+        }
+      ],
+      "onEnter": [
+        "builtin/resetSession {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "f135e6f6d0",
+      "name": "show_reports",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-g-3N5g",
+        "Database/fetch_reports {}",
+        "Util/display_reports {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "d8d6f137a4",
+      "name": "report_aborted",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-VbqN8_"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "5f86bccb06",
+      "name": "location_added",
+      "next": [
+        {
+          "condition": "true",
+          "node": "new_report/subflows/Add_description.flow.json"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "3202de48a3",
+      "name": "description_added",
+      "next": [
+        {
+          "condition": "true",
+          "node": "should_add_photo"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "f92782710a",
+      "name": "photo_insertion_over",
+      "next": [
+        {
+          "condition": "true",
+          "node": "review_report"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

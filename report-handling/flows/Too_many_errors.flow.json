@@ -1,0 +1,24 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "57aa24a587",
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_text-hRhT_e",
+        "builtin/resetSession {}"
+      ],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json"
+        }
+      ],
+      "type": "standard"
+    }
+  ]
+}

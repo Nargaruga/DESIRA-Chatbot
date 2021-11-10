@@ -1,0 +1,107 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": []
+  },
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "376770e977",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "request_description"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "54f254152d",
+      "name": "request_description",
+      "next": [
+        {
+          "condition": "temp.is_text == true",
+          "node": "confirm_description"
+        },
+        {
+          "condition": "temp.is_text == false",
+          "node": "description_not_text"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-G3Zw33"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"description\",\"value\":\"{{event.payload.text}}\"}",
+        "Validation/check_if_text {}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "538e88805b",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_description",
+      "flow": "skills/choice-cc8ffb.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-gv5zdtcr26'] == \"confirm\"",
+          "node": "description_edited"
+        },
+        {
+          "caption": "User picked [edit]",
+          "condition": "temp['skill-choice-ret-gv5zdtcr26'] == \"edit\"",
+          "node": "request_description"
+        },
+        {
+          "caption": "User picked [abort_s...]",
+          "condition": "temp['skill-choice-ret-gv5zdtcr26'] == \"abort_single\"",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "78d8d5ba72",
+      "name": "description_edited",
+      "next": [
+        {
+          "condition": "true",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        }
+      ],
+      "onEnter": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"description_edited\",\"value\":\"true\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "fcea255bf7",
+      "name": "description_not_text",
+      "next": [
+        {
+          "condition": "true",
+          "node": "request_description"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-yqq3H1"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

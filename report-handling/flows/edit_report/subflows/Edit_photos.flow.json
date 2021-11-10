@@ -1,0 +1,404 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "temp.error == true",
+        "node": "error.flow.json"
+      }
+    ]
+  },
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "3fd1c19b6d",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "check_for_photos"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "324cd949fb",
+      "name": "store_photos",
+      "next": [
+        {
+          "condition": "true",
+          "node": "display_photos"
+        }
+      ],
+      "onEnter": [
+        "Util/store_photos_locally {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "2ac539213c",
+      "name": "display_photos",
+      "next": [
+        {
+          "condition": "true",
+          "node": "photo_choose_action"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-nuo2vk",
+        "Util/display_photos {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "3b4301550e",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "photo_choose_action",
+      "flow": "skills/choice-780b10.flow.json",
+      "next": [
+        {
+          "caption": "User picked [add]",
+          "condition": "temp['skill-choice-ret-uvcp0cc1ji'] == \"add\"",
+          "node": "ask_photo"
+        },
+        {
+          "caption": "User picked [remove]",
+          "condition": "temp['skill-choice-ret-uvcp0cc1ji'] == \"remove\"",
+          "node": "choose_photo"
+        },
+        {
+          "caption": "User picked [abort_s...]",
+          "condition": "temp['skill-choice-ret-uvcp0cc1ji'] == \"abort_single\"",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "973b62d5f9",
+      "name": "ask_photo",
+      "next": [
+        {
+          "condition": "temp.is_photo  == true",
+          "node": "confirm_photo"
+        },
+        {
+          "condition": "temp.is_photo  == false",
+          "node": "not_a_photo"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-i3cuJG"
+      ],
+      "onReceive": [
+        "Util/download_photo {}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "3fcc0e4f4c",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_photo",
+      "flow": "skills/choice-3e3f60.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-raick5kw42'] == \"confirm\"",
+          "node": "photo_added"
+        },
+        {
+          "caption": "User picked [edit]",
+          "condition": "temp['skill-choice-ret-raick5kw42'] == \"edit\"",
+          "node": "ask_photo"
+        },
+        {
+          "caption": "User picked [abort_s...]",
+          "condition": "temp['skill-choice-ret-raick5kw42'] == \"abort_single\"",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "a797c5eb7d",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "not_a_photo",
+      "flow": "skills/choice-643152.flow.json",
+      "next": [
+        {
+          "caption": "User picked [retry]",
+          "condition": "temp['skill-choice-ret-oqvjpqx3rc'] == \"retry\"",
+          "node": "ask_photo"
+        },
+        {
+          "caption": "User picked [back]",
+          "condition": "temp['skill-choice-ret-oqvjpqx3rc'] == \"back\"",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "7c27a929f6",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "should_keep_adding",
+      "flow": "skills/choice-6e2d80.flow.json",
+      "next": [
+        {
+          "caption": "User picked [yes]",
+          "condition": "temp['skill-choice-ret-opfjz2ianh'] == \"yes\"",
+          "node": "ask_photo"
+        },
+        {
+          "caption": "User picked [no]",
+          "condition": "temp['skill-choice-ret-opfjz2ianh'] == \"no\"",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "7d44d9d5d0",
+      "name": "choose_photo",
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse_photo_choice"
+        }
+      ],
+      "onEnter": [
+        "Choices/choose_photo {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "40f3aeba43",
+      "name": "parse_photo_choice",
+      "next": [
+        {
+          "condition": "temp.photo_index  != \"Annulla modifica\"",
+          "node": "check_if_photo_exists"
+        },
+        {
+          "condition": "temp.photo_index    == \"Annulla modifica\"",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"photo_index\",\"value\":\"{{event.payload.text}}\"}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "1c97e6714d",
+      "name": "check_if_photo_exists",
+      "next": [
+        {
+          "condition": "temp.is_photo == true",
+          "node": "confirm_photo_deletion"
+        },
+        {
+          "condition": "temp.is_photo == false",
+          "node": "invalid_photo-copy"
+        }
+      ],
+      "onEnter": [
+        "Util/check_if_photo_exists {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "4f3ec6d49f",
+      "name": "invalid_photo-copy",
+      "next": [
+        {
+          "condition": "true",
+          "node": "choose_photo"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-SW_lb3"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "bed5f16f42",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_photo_deletion",
+      "flow": "skills/choice-e6db85.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-zl90lrvmqt'] == \"confirm\"",
+          "node": "mark_for_deletion"
+        },
+        {
+          "caption": "User picked [abort_s...]",
+          "condition": "temp['skill-choice-ret-zl90lrvmqt'] == \"abort_single\"",
+          "node": "should_keep_deleting"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "95841738b5",
+      "name": "photo_deleted",
+      "next": [
+        {
+          "condition": "true",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        }
+      ],
+      "onEnter": [
+        "Util/delete_photo {}",
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"photos_edited\",\"value\":\"true\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "f4ef617f74",
+      "name": "photo_added",
+      "next": [
+        {
+          "condition": "true",
+          "node": "should_keep_adding"
+        }
+      ],
+      "onEnter": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"photos_edited\",\"value\":\"true\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "9a6fd6050b",
+      "name": "check_for_photos",
+      "next": [
+        {
+          "condition": "temp.photos == null || temp.photos.length == 0",
+          "node": "should_add_photo"
+        },
+        {
+          "condition": "true",
+          "node": "store_photos"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "1ba4ec4ba6",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "should_add_photo",
+      "flow": "skills/choice-77d06d.flow.json",
+      "next": [
+        {
+          "caption": "User picked [yes]",
+          "condition": "temp['skill-choice-ret-0o3jhp5g58'] == \"yes\"",
+          "node": "ask_photo"
+        },
+        {
+          "caption": "User picked [no]",
+          "condition": "temp['skill-choice-ret-0o3jhp5g58'] == \"no\"",
+          "node": "edit_report/Edit_report.flow.json#ask_what_to_edit"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "skill-917513",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "should_keep_deleting",
+      "flow": "skills/choice-917513.flow.json",
+      "next": [
+        {
+          "caption": "User picked [yes]",
+          "condition": "temp['skill-choice-ret-n2pp1abhqk'] == \"yes\"",
+          "node": "choose_photo"
+        },
+        {
+          "caption": "User picked [no]",
+          "condition": "temp['skill-choice-ret-n2pp1abhqk'] == \"no\"",
+          "node": "photo_deleted"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "4d964f9b39",
+      "name": "mark_for_deletion",
+      "next": [
+        {
+          "condition": "true",
+          "node": "should_keep_deleting"
+        }
+      ],
+      "onEnter": [
+        "mark_for_deletion {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

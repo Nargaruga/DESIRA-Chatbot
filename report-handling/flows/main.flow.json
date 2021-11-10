@@ -1,0 +1,169 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "temp.error == true",
+        "node": "error.flow.json"
+      }
+    ]
+  },
+  "startNode": "entry",
+  "nodes": [
+    {
+      "id": "670109d7f9",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "ask_for_registration",
+      "flow": "skills/choice-e700c6.flow.json",
+      "next": [
+        {
+          "caption": "User picked [new_user]",
+          "condition": "temp['skill-choice-ret-tl7wg9u41v'] == \"new_user\"",
+          "node": "registration/Registration.flow.json"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-tl7wg9u41v'] == \"abort\"",
+          "node": "dont_register"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "entry",
+      "name": "entry",
+      "next": [
+        {
+          "condition": "true",
+          "node": "check_if_registered"
+        }
+      ],
+      "onEnter": [
+        "Database/check_user {}"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "skill-d4b9fb",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "possible_actions",
+      "flow": "skills/choice-d4b9fb.flow.json",
+      "next": [
+        {
+          "caption": "User picked [new_rep...]",
+          "condition": "temp['skill-choice-ret-2evo5xa4um'] == \"new_report\"",
+          "node": "new_report/New_report.flow.json"
+        },
+        {
+          "caption": "User picked [report_...]",
+          "condition": "temp['skill-choice-ret-2evo5xa4um'] == \"report_status\"",
+          "node": "view_reports/View_reports.flow.json"
+        },
+        {
+          "caption": "User picked [edit_re...]",
+          "condition": "temp['skill-choice-ret-2evo5xa4um'] == \"edit_report\"",
+          "node": "edit_report/Edit_report.flow.json"
+        },
+        {
+          "caption": "User picked [delete_...]",
+          "condition": "temp['skill-choice-ret-2evo5xa4um'] == \"delete_account\"",
+          "node": "delete_account/Delete_account.flow.json"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "e30e4ebf7e",
+      "name": "check_if_registered",
+      "next": [
+        {
+          "condition": "temp.registered    == false",
+          "node": "ask_for_registration"
+        },
+        {
+          "condition": "temp.registered    == true",
+          "node": "session_starts"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "a285f07ed5",
+      "name": "session_starts",
+      "next": [
+        {
+          "condition": "true",
+          "node": "possible_actions"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-qB-gso"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "skill-78ea28",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "should_continue",
+      "flow": "skills/choice-78ea28.flow.json",
+      "next": [
+        {
+          "caption": "User picked [yes]",
+          "condition": "temp['skill-choice-ret-rmlzqhhx49'] == \"yes\"",
+          "node": "possible_actions"
+        },
+        {
+          "caption": "User picked [no]",
+          "condition": "temp['skill-choice-ret-rmlzqhhx49'] == \"no\"",
+          "node": "goodbye"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "26bb361cfc",
+      "name": "goodbye",
+      "next": [],
+      "onEnter": [
+        "say #!builtin_text-dwmgUi"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "e79eaae497",
+      "name": "dont_register",
+      "next": [],
+      "onEnter": [
+        "say #!builtin_text-CebDBs"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

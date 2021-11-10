@@ -1,0 +1,1371 @@
+[
+  {
+    "id": "builtin_single-choice-_B4YUK",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Avvia registrazione",
+          "value": "new_user"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Per continuare è necessario registrarsi.",
+      "text$it": "Per continuare è necessario registrarsi.",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Avvia registrazione",
+          "value": "new_user"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-02T17:44:59.896Z",
+    "modifiedOn": "2021-11-09T16:24:03.793Z"
+  },
+  {
+    "id": "builtin_single-choice-JB-Zcy",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Numero di telefono",
+          "value": "type_phone"
+        },
+        {
+          "value": "type_email",
+          "title": "Indirizzo e-mail"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Come preferisce essere contattato?",
+      "text$it": "Come preferirebbe essere contattato in caso di necessità?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Numero di telefono",
+          "value": "type_phone"
+        },
+        {
+          "value": "type_email",
+          "title": "Indirizzo e-mail"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-02T17:56:00.641Z",
+    "modifiedOn": "2021-10-19T14:12:24.243Z"
+  },
+  {
+    "id": "builtin_single-choice-Vvdiq9",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Sì",
+          "value": "confirm"
+        },
+        {
+          "title": "No, modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Il numero di telefono è {{session.phone_number}}?",
+      "text$it": "Conferma il numero di telefono da lei inviato?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "confirm"
+        },
+        {
+          "title": "No, modifica",
+          "value": "edit"
+        },
+        {
+          "value": "abort_phone",
+          "title": "Annulla inserimento numero di telefono"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-05T10:40:08.606Z",
+    "modifiedOn": "2021-10-19T14:11:04.453Z"
+  },
+  {
+    "id": "builtin_single-choice-SyyLiO",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Sì",
+          "value": "confirm"
+        },
+        {
+          "title": "No, modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "L' indirizzo e-mail è {{session.email_address}}?",
+      "text$it": "Conferma l' indirizzo e-mail da lei inviato?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "confirm"
+        },
+        {
+          "title": "No, modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla inserimento indirizzo e-mail",
+          "value": "abort_email"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-05T10:43:41.420Z",
+    "modifiedOn": "2021-10-19T14:09:43.729Z"
+  },
+  {
+    "id": "builtin_single-choice-UOYigB",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Vuole aggiungere anche un indirizzo e-mail?",
+      "text$it": "Vuole aggiungere un contatto secondario? Questo verrà utilizzato nel caso in cui quello primario risulti irraggiungibile.",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-23T09:27:53.111Z",
+    "modifiedOn": "2021-10-19T14:00:51.893Z"
+  },
+  {
+    "id": "builtin_single-choice-m7OAnU",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Vuole aggiungere anche un numero di telefono?",
+      "text$it": "Cosa preferisce aggiungere come contatto secondario?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Numero di telefono",
+          "value": "type_phone"
+        },
+        {
+          "title": "Indirizzo e-mail",
+          "value": "type_email"
+        },
+        {
+          "title": "Salta",
+          "value": "skip"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-23T09:28:51.473Z",
+    "modifiedOn": "2021-11-03T10:56:13.619Z"
+  },
+  {
+    "id": "builtin_single-choice-0mh1-c",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Sì",
+          "value": "confirm"
+        },
+        {
+          "title": "No, modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "{{session.first_name}} {{session.last_name}}, corretto?",
+      "text$it": "{{{temp.first_name}}} {{{temp.last_name}}}, corretto?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "confirm"
+        },
+        {
+          "title": "No, modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-23T09:44:11.212Z",
+    "modifiedOn": "2021-11-09T16:39:42.313Z"
+  },
+  {
+    "id": "builtin_single-choice-ZzBO6b",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Confermare la registrazione?",
+      "text$it": "Confermare la registrazione?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-23T12:09:40.291Z",
+    "modifiedOn": "2021-09-26T14:35:40.397Z"
+  },
+  {
+    "id": "builtin_single-choice-os6Vf8",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Apri nuova segnalazione",
+          "value": "new_report"
+        },
+        {
+          "title": "Verifica stato segnalazione",
+          "value": "report_status"
+        },
+        {
+          "value": "edit_report",
+          "title": "Modifica segnalazione"
+        },
+        {
+          "title": "[DEBUG] Reset",
+          "value": "reset"
+        },
+        {
+          "title": "[DEBUG] Display reports",
+          "value": "reports"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Come posso aiutarla?",
+      "isDropdown$en": false,
+      "text$it": "Come posso aiutarla?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Apri nuova segnalazione",
+          "value": "new_report"
+        },
+        {
+          "title": "Visualizza segnalazioni",
+          "value": "report_status"
+        },
+        {
+          "value": "edit_report",
+          "title": "Modifica segnalazione"
+        },
+        {
+          "title": "Cancella account",
+          "value": "delete_account"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "isDropdown$it": false
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-23T12:49:17.095Z",
+    "modifiedOn": "2021-11-08T16:39:19.308Z"
+  },
+  {
+    "id": "builtin_single-choice-hdt0dD",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort_report"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Conferma la descrizione da lei inviata?",
+      "text$it": "Conferma la descrizione da lei inviata?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort_report"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T09:22:31.468Z",
+    "modifiedOn": "2021-09-22T14:48:36.836Z"
+  },
+  {
+    "id": "builtin_single-choice-5NLlck",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort_report"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Vuole aggiungere una foto?",
+      "text$it": "Vuole aggiungere una foto?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort_report"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T09:23:58.582Z",
+    "modifiedOn": "2021-09-22T14:48:37.031Z"
+  },
+  {
+    "id": "builtin_single-choice-fnuNit",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort_report"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Vuole confermare la foto inviata?",
+      "text$it": "Vuole confermare la foto inviata?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Cambia foto",
+          "value": "edit"
+        },
+        {
+          "value": "abort_single",
+          "title": "Annulla questa modifica"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T10:09:14.401Z",
+    "modifiedOn": "2021-11-01T17:42:19.341Z"
+  },
+  {
+    "id": "builtin_single-choice-B9wT9C",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort_report"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Confermare la segnalazione?",
+      "text$it": "Confermare la segnalazione?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T11:11:28.261Z",
+    "modifiedOn": "2021-10-25T15:59:39.767Z"
+  },
+  {
+    "id": "builtin_single-choice-8BRi9l",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Riprova",
+          "value": "retry"
+        },
+        {
+          "title": "Annulla inserimento numero di telefono",
+          "value": "abort_phone"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Il numero inserito non è valido, vuole riprovare?",
+      "text$it": "Il numero inserito non è valido, vuole riprovare?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Riprova",
+          "value": "retry"
+        },
+        {
+          "title": "Annulla inserimento numero di telefono",
+          "value": "abort_phone"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-20T12:29:08.542Z",
+    "modifiedOn": "2021-09-22T14:48:37.745Z"
+  },
+  {
+    "id": "builtin_single-choice-no18zC",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Riprova",
+          "value": "retry"
+        },
+        {
+          "title": "Annulla inserimento indirizzo e-mail",
+          "value": "abort_email"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "L' indirizzo e-mail inserito non è valido. Vuole riprovare a inserirlo?",
+      "text$it": "L' indirizzo e-mail inserito non è valido. Vuole riprovare a inserirlo?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Riprova",
+          "value": "retry"
+        },
+        {
+          "title": "Annulla inserimento indirizzo e-mail",
+          "value": "abort_email"
+        },
+        {
+          "title": "Annulla registrazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-20T12:36:54.424Z",
+    "modifiedOn": "2021-09-22T14:48:37.923Z"
+  },
+  {
+    "id": "builtin_single-choice-LxbRiF",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Invio coordinate GPS",
+          "value": "coords"
+        },
+        {
+          "value": "desc",
+          "title": "Descrizione testuale"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "In che luogo è avvenuto l' evento? Scelga il metodo che preferisce per comunicare la posizione.",
+      "text$it": "In che luogo è avvenuto l' evento? Scelga il metodo che preferisce per comunicare la posizione.",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Invio coordinate GPS",
+          "value": "coords"
+        },
+        {
+          "value": "desc",
+          "title": "Descrizione testuale"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-20T16:30:39.500Z",
+    "modifiedOn": "2021-09-23T14:32:22.799Z"
+  },
+  {
+    "id": "builtin_single-choice-jGfy3X",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Riprova",
+          "value": "retry"
+        },
+        {
+          "title": "Cambia modalità di invio della posizione",
+          "value": "change_mode"
+        },
+        {
+          "value": "abort",
+          "title": "Annulla segnalazione"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Messaggio non valido. Vuole provare di nuovo a inviare la posizione o preferisce annullare la segnalazione?",
+      "text$it": "Messaggio non valido. Vuole provare di nuovo a inviare la posizione o preferisce annullare la segnalazione?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Riprova",
+          "value": "retry"
+        },
+        {
+          "title": "Cambia modalità di invio della posizione",
+          "value": "change_mode"
+        },
+        {
+          "value": "abort",
+          "title": "Annulla segnalazione"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-21T09:30:30.639Z",
+    "modifiedOn": "2021-10-25T15:35:39.350Z"
+  },
+  {
+    "id": "builtin_single-choice-6Bql-t",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Conferma la posizione da lei appena inviata?",
+      "text$it": "Conferma la posizione da lei appena inviata?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-21T09:44:01.329Z",
+    "modifiedOn": "2021-09-22T14:48:38.511Z"
+  },
+  {
+    "id": "builtin_single-choice-NwVOgi",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Riprova",
+          "value": "retry"
+        },
+        {
+          "title": "Non aggiungere foto",
+          "value": "skip"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Il messaggio inviato non è una foto. Vuole riprovare?",
+      "text$it": "Il messaggio inviato non è una foto. Tenga presente che l'invio di file senza compressione non è supportato.\nVuole riprovare?",
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Riprova",
+          "value": "retry"
+        },
+        {
+          "title": "Annulla inserimento",
+          "value": "back"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-21T09:47:34.430Z",
+    "modifiedOn": "2021-11-01T18:31:11.875Z"
+  },
+  {
+    "id": "builtin_single-choice-lCbcne",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Posizione",
+          "value": "location"
+        },
+        {
+          "title": "Descrizione evento",
+          "value": "description"
+        },
+        {
+          "title": "Foto",
+          "value": "photo"
+        },
+        {
+          "value": "end",
+          "title": "Conferma tutte le modifiche"
+        },
+        {
+          "title": "Annulla tutte le modifiche",
+          "value": "abort"
+        },
+        {
+          "title": "Elimina segnalazione",
+          "value": "remove_report"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Cosa vorrebbe modificare?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-06T18:51:51.348Z",
+    "modifiedOn": "2021-11-01T18:05:32.516Z"
+  },
+  {
+    "id": "builtin_single-choice-8Ot6Jh",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Coordinate GPS",
+          "value": "coords"
+        },
+        {
+          "title": "Descrizione testuale",
+          "value": "desc"
+        },
+        {
+          "title": "Annulla questa modifica",
+          "value": "abort_single"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Scelga il metodo che preferisce per aggiornare la posizione."
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-06T18:57:12.749Z",
+    "modifiedOn": "2021-10-25T15:48:09.253Z"
+  },
+  {
+    "id": "builtin_single-choice-2Li6F6",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla questa modifica",
+          "value": "abort_single"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Conferma la modifica?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-06T19:10:54.237Z",
+    "modifiedOn": "2021-10-25T15:51:16.923Z"
+  },
+  {
+    "id": "builtin_single-choice-__x9wW",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Riprova",
+          "value": "retry"
+        },
+        {
+          "title": "Cambia modalità",
+          "value": "change_mode"
+        },
+        {
+          "title": "Annulla questa modifica",
+          "value": "abort_single"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Messaggio non valido. Vuole provare di nuovo a inviare la posizione?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-06T19:14:51.949Z",
+    "modifiedOn": "2021-10-25T15:48:24.039Z"
+  },
+  {
+    "id": "builtin_single-choice-rS4jzr",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Continua a modificare",
+          "value": "keep_editing"
+        },
+        {
+          "title": "Annulla tutte le modifiche",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Vuole confermare tutte le modifiche attuate?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-11T15:21:28.313Z",
+    "modifiedOn": "2021-10-11T15:21:28.313Z"
+  },
+  {
+    "id": "builtin_single-choice-RVu2PY",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort_deletion"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Vuole davvero eliminare la segnalazione? Questa azione è irreversibile."
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-11T15:59:00.699Z",
+    "modifiedOn": "2021-10-11T15:59:00.699Z"
+  },
+  {
+    "id": "builtin_single-choice-_urWND",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Ha altre foto da inviare?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-13T15:16:21.255Z",
+    "modifiedOn": "2021-11-01T17:39:32.604Z"
+  },
+  {
+    "id": "builtin_single-choice-xchFWp",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Aggiungi foto",
+          "value": "add"
+        },
+        {
+          "value": "remove",
+          "title": "Elimina foto"
+        },
+        {
+          "title": "Annulla questa modifica",
+          "value": "abort_single"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Vuole aggiungere nuove foto o eliminarne qualcuna?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-16T16:22:40.595Z",
+    "modifiedOn": "2021-11-01T17:43:02.759Z"
+  },
+  {
+    "id": "builtin_single-choice-nRGpu9",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Annulla questa modifica",
+          "value": "abort_single"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Conferma di voler eliminare la foto selezionata?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-18T11:51:28.984Z",
+    "modifiedOn": "2021-11-09T14:16:09.073Z"
+  },
+  {
+    "id": "builtin_single-choice-X68gp7",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Opzione 1",
+          "value": "opzione1"
+        },
+        {
+          "title": "Opzione 2",
+          "value": "opzione2"
+        },
+        {
+          "title": "Opzione 3",
+          "value": "opzione3"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": false,
+      "typing$it": true,
+      "text$it": "Selezioni un valore."
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-23T16:35:26.997Z",
+    "modifiedOn": "2021-10-23T16:53:37.154Z"
+  },
+  {
+    "id": "builtin_single-choice-Z3XEoh",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Modifica",
+          "value": "edit"
+        },
+        {
+          "title": "Annulla inserimento foto",
+          "value": "skip"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Vuole confermare la foto inviata?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-25T15:32:20.654Z",
+    "modifiedOn": "2021-10-25T15:32:20.654Z"
+  },
+  {
+    "id": "builtin_single-choice-SMBxn9",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Ha altre foto da inviare?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-25T15:33:03.289Z",
+    "modifiedOn": "2021-10-25T15:33:03.289Z"
+  },
+  {
+    "id": "builtin_single-choice-Gc5Auj",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Riprova",
+          "value": "retry"
+        },
+        {
+          "title": "Annulla inserimento foto",
+          "value": "skip"
+        },
+        {
+          "title": "Annulla segnalazione",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Il messaggio inviato non è una foto. Tenga presente che l'invio di file senza compressione non è supportato.\nVuole riprovare?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-25T15:33:59.982Z",
+    "modifiedOn": "2021-10-25T15:33:59.982Z"
+  },
+  {
+    "id": "builtin_single-choice-Xmsg9W",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        },
+        {
+          "title": "Annulla inserimento foto",
+          "value": "abort_single"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Ha altre foto da inviare?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-25T15:40:39.698Z",
+    "modifiedOn": "2021-10-25T15:58:23.055Z"
+  },
+  {
+    "id": "builtin_single-choice-71w2B_",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Conferma",
+          "value": "confirm"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Conferma di voler cancellare il proprio account?\nLe segnalazioni non verranno annullate e potrà visualizzarle registrandosi nuovamente."
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-29T17:12:37.842Z",
+    "modifiedOn": "2021-11-09T16:37:18.093Z"
+  },
+  {
+    "id": "builtin_single-choice-BWpBr5",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Segnalazioni attive",
+          "value": "active"
+        },
+        {
+          "title": "Segnalazioni archiviate",
+          "value": "archived"
+        },
+        {
+          "title": "Tutte le segnalazioni",
+          "value": "all"
+        },
+        {
+          "title": "Annulla",
+          "value": "abort"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Quali segnalazioni desidera visualizzare?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-31T13:39:14.601Z",
+    "modifiedOn": "2021-10-31T13:39:14.601Z"
+  },
+  {
+    "id": "builtin_single-choice-97edLg",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Posso aiutarla in qualche altro modo?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-01T15:08:28.894Z",
+    "modifiedOn": "2021-11-01T18:01:26.125Z"
+  },
+  {
+    "id": "builtin_single-choice-3TpEqm",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Non ci sono foto associate a questa segnalazione, vuole aggiungerne?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-01T18:39:52.807Z",
+    "modifiedOn": "2021-11-01T19:52:04.423Z"
+  },
+  {
+    "id": "builtin_single-choice-fQtl17",
+    "formData": {
+      "dropdownPlaceholder$it": "Select...",
+      "choices$it": [
+        {
+          "title": "Sì",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        }
+      ],
+      "markdown$it": true,
+      "disableFreeText$it": true,
+      "typing$it": true,
+      "text$it": "Vuole eliminare altre foto?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-09T12:30:59.092Z",
+    "modifiedOn": "2021-11-09T12:30:59.092Z"
+  }
+]

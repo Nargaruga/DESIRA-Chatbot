@@ -1,0 +1,703 @@
+[
+  {
+    "id": "builtin_text-bnEOq0",
+    "formData": {
+      "markdown$en": true,
+      "typing$en": true,
+      "text$en": "Inserisca un numero di telefono.",
+      "text$it": "Inserisca un numero di telefono.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-02T17:58:15.899Z",
+    "modifiedOn": "2021-09-22T14:48:38.805Z"
+  },
+  {
+    "id": "builtin_text-fQkhMI",
+    "formData": {
+      "markdown$en": true,
+      "typing$en": true,
+      "text$en": "Inserisca un indirizzo e-mail.",
+      "text$it": "Inserisca un indirizzo e-mail.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-02T17:58:48.227Z",
+    "modifiedOn": "2021-09-22T14:48:38.942Z"
+  },
+  {
+    "id": "builtin_text-jpgmZa",
+    "formData": {
+      "text$en": "Inserisca il suo cognome.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Inserisca il suo cognome.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-23T09:41:53.624Z",
+    "modifiedOn": "2021-09-22T14:48:39.080Z"
+  },
+  {
+    "id": "builtin_text-UIjALE",
+    "formData": {
+      "text$en": "Inserisca il suo nome.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Inserisca il suo nome.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-23T09:43:02.731Z",
+    "modifiedOn": "2021-09-22T14:48:39.285Z"
+  },
+  {
+    "id": "builtin_text-rc064t",
+    "formData": {
+      "text$en": "Registrazione completata!",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Registrazione completata!",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-23T09:46:48.844Z",
+    "modifiedOn": "2021-09-22T14:48:39.420Z"
+  },
+  {
+    "id": "builtin_text-5Jii45",
+    "formData": {
+      "text$en": "In che luogo è avvenuto l' evento? Per inviare le coordinate può sfiorare la graffetta a destra dell' area di scrittura, selezionare \"Posizione\" e seguire le istruzioni a schermo.",
+      "markdown$en": true,
+      "typing$en": true,
+      "variations$en": [],
+      "text$it": "In che luogo è avvenuto l' evento? Per inviare le coordinate può sfiorare la graffetta a destra dell' area di scrittura, selezionare \"Posizione\" e seguire le istruzioni a schermo.",
+      "variations$it": [],
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-23T12:05:52.488Z",
+    "modifiedOn": "2021-09-22T14:48:39.567Z"
+  },
+  {
+    "id": "builtin_text-ZZpsdY",
+    "formData": {
+      "text$en": "Riepilogo\nNome: {{session.first_name}} {{session.last_name}}\nNumero di telefono: {{session.phone_number}}\nIndirizzo e-mail: {{session.email_address}}",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Riepilogo\nNome: {{{temp.first_name}}} {{{temp.last_name}}}\nContatto primario: {{{temp.primary_contact}}}\nContatto secondario: {{{temp.secondary_contact}}}",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-08-23T12:08:47.632Z",
+    "modifiedOn": "2021-11-09T14:26:07.418Z"
+  },
+  {
+    "id": "builtin_text-rM_f9I",
+    "formData": {
+      "text$en": "Registrazione annullata.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Registrazione annullata.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-06T14:00:16.642Z",
+    "modifiedOn": "2021-09-22T14:48:39.842Z"
+  },
+  {
+    "id": "builtin_text-CDWkqw",
+    "formData": {
+      "text$en": "{{temp.response.body}}",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "{{temp.response.body}}",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-09T08:06:57.201Z",
+    "modifiedOn": "2021-09-22T14:48:39.957Z"
+  },
+  {
+    "id": "builtin_text-EaLSSc",
+    "formData": {
+      "text$en": "Registrazione fallita per un errore interno. I nostri operatori sono stati avvisati dell' errore e cercheranno di risolverlo il prima possibile. La preghiamo di riprovare la procedura di registrazione più tardi.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Registrazione fallita per un errore interno. I nostri operatori sono stati avvisati dell' errore e cercheranno di risolverlo il prima possibile. La preghiamo di riprovare la procedura di registrazione più tardi.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-10T12:01:47.588Z",
+    "modifiedOn": "2021-09-22T14:48:40.167Z"
+  },
+  {
+    "id": "builtin_text-KaKjyL",
+    "formData": {
+      "text$en": "whaat",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "whaat",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-10T12:32:21.743Z",
+    "modifiedOn": "2021-09-22T14:48:40.284Z"
+  },
+  {
+    "id": "builtin_text-MFeDxv",
+    "formData": {
+      "text$en": "Risposta non valida. Per rispondere è necessario selezionare una delle opzioni che compaiono a schermo.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Risposta non valida. Per rispondere è necessario selezionare una delle opzioni che compaiono a schermo.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-10T15:09:57.464Z",
+    "modifiedOn": "2021-09-22T14:48:40.418Z"
+  },
+  {
+    "id": "builtin_text-G6fUiM",
+    "formData": {
+      "text$en": "{{session.photo}}",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "{{session.photo}}",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-14T19:25:25.936Z",
+    "modifiedOn": "2021-09-22T14:48:40.542Z"
+  },
+  {
+    "id": "builtin_text-2Kev_J",
+    "formData": {
+      "text$en": "Numero non valido.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Numero non valido.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-16T17:22:44.820Z",
+    "modifiedOn": "2021-09-22T14:48:41.417Z"
+  },
+  {
+    "id": "builtin_text-PdtuOA",
+    "formData": {
+      "text$en": "Per inviare le coordinate può sfiorare la graffetta a destra dell' area di scrittura, selezionare \"Posizione\" e seguire le istruzioni a schermo.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Per inviare le coordinate può sfiorare la graffetta adiacente all' area di scrittura, selezionare \"Posizione\" e seguire le istruzioni a schermo.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T08:42:18.282Z",
+    "modifiedOn": "2021-09-26T14:49:36.105Z"
+  },
+  {
+    "id": "builtin_text-G3Zw33",
+    "formData": {
+      "text$en": "Invii una breve (600 caratteri max) descrizione dell' accaduto.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Invii una breve (600 caratteri max) descrizione dell' accaduto.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T08:50:13.391Z",
+    "modifiedOn": "2021-09-22T14:48:41.638Z"
+  },
+  {
+    "id": "builtin_text-i3cuJG",
+    "formData": {
+      "text$en": "Invii una foto.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Invii una singola foto, per favore.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T09:26:24.449Z",
+    "modifiedOn": "2021-10-19T16:04:38.198Z"
+  },
+  {
+    "id": "builtin_text-XgoRms",
+    "formData": {
+      "text$en": "I dati della segnalazione sono i seguenti:\nPosizione: {{session.location}}\nFoto: {{session.photo_added}}\nDescrizione: {{session.description}}",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "I dati della segnalazione sono i seguenti:\nPosizione: {{{temp.location}}}\nFoto inserite: {{temp.count}}\nDescrizione: {{{temp.description}}}",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T11:14:51.353Z",
+    "modifiedOn": "2021-11-09T14:27:57.048Z"
+  },
+  {
+    "id": "builtin_text-VbqN8_",
+    "formData": {
+      "text$en": "Segnalazione annullata.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Segnalazione annullata.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T11:25:08.178Z",
+    "modifiedOn": "2021-09-22T14:48:42.219Z"
+  },
+  {
+    "id": "builtin_text-g0P0ee",
+    "formData": {
+      "text$en": "[TODO: MOSTRARE ERRORE E RECAPITO PER ASSISTENZA?] Segnalazione fallita per un errore interno.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Operazione fallita per un errore interno. I nostri operatori sono stati notificati del problema e cercheranno di risolverlo il prima possibile. La preghiamo di riprovare più tardi.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T12:46:36.676Z",
+    "modifiedOn": "2021-10-13T16:39:17.498Z"
+  },
+  {
+    "id": "builtin_text-qQgAVj",
+    "formData": {
+      "text$en": "La segnalazione è stata inoltrata con successo, grazie!",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "La segnalazione è stata inoltrata con successo, grazie!",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-18T12:47:33.849Z",
+    "modifiedOn": "2021-09-22T14:48:42.445Z"
+  },
+  {
+    "id": "builtin_text-q9NZl2",
+    "formData": {
+      "text$en": "Il servizio è al momento non disponibile, la preghiamo di riprovare più tardi. I nostri operatori sono stati notificati del disguido.",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Il servizio è al momento non disponibile, la preghiamo di riprovare più tardi. I nostri operatori sono stati notificati del disguido.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-20T12:16:18.754Z",
+    "modifiedOn": "2021-09-22T14:48:42.581Z"
+  },
+  {
+    "id": "builtin_text-q6h3cT",
+    "formData": {
+      "text$en": "Invii una descrizione testuale del luogo dell' accaduto (Via, punti di riferimento vicini, ecc.).",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Invii una descrizione testuale del luogo dell' accaduto (Via, punti di riferimento vicini, ecc.).",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-20T16:39:06.245Z",
+    "modifiedOn": "2021-09-22T14:48:42.699Z"
+  },
+  {
+    "id": "builtin_text-g-3N5g",
+    "formData": {
+      "text$en": "Ecco un riepilogo delle sue segnalazioni:",
+      "markdown$en": true,
+      "typing$en": true,
+      "text$it": "Ecco un riepilogo delle sue segnalazioni attive:",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-09-21T12:27:50.781Z",
+    "modifiedOn": "2021-10-13T14:54:18.772Z"
+  },
+  {
+    "id": "builtin_text-il88UD",
+    "formData": {
+      "text$it": "Tutte le modifiche sono state annullate.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-11T15:22:51.816Z",
+    "modifiedOn": "2021-10-11T15:22:51.816Z"
+  },
+  {
+    "id": "builtin_text-f4Z7qz",
+    "formData": {
+      "text$it": "Modifica annullata.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-11T15:23:12.951Z",
+    "modifiedOn": "2021-10-11T15:23:12.951Z"
+  },
+  {
+    "id": "builtin_text-o_pUFH",
+    "formData": {
+      "text$it": "La segnalazione specificata non esiste. Per scegliere quale segnalazione modificare selezioni una delle opzioni che compaiono a schermo.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-11T17:25:30.026Z",
+    "modifiedOn": "2021-10-11T17:25:30.026Z"
+  },
+  {
+    "id": "builtin_text-B7W9GE",
+    "formData": {
+      "text$it": "Segnalazione modificata con successo.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-12T17:53:31.986Z",
+    "modifiedOn": "2021-10-12T17:53:31.986Z"
+  },
+  {
+    "id": "builtin_text-P1CEhR",
+    "formData": {
+      "text$it": "Segnalazione rimossa con successo.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-12T17:53:50.647Z",
+    "modifiedOn": "2021-10-12T17:53:50.647Z"
+  },
+  {
+    "id": "builtin_text-rL0dB6",
+    "formData": {
+      "text$it": "Risposta non valida. Per rispondere è necessario selezionare una delle opzioni che compaiono a schermo. Ricordi, inoltre, che può inviare una sola foto alla volta.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-13T15:15:31.742Z",
+    "modifiedOn": "2021-10-13T15:15:31.742Z"
+  },
+  {
+    "id": "builtin_text-vsMVu4",
+    "formData": {
+      "text$it": "Registrazione avvenuta con successo.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-13T17:22:36.507Z",
+    "modifiedOn": "2021-10-13T17:22:36.507Z"
+  },
+  {
+    "id": "builtin_text--A9teV",
+    "formData": {
+      "text$it": "Al momento non ha segnalazioni attive.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-13T18:02:04.508Z",
+    "modifiedOn": "2021-10-13T18:02:04.508Z"
+  },
+  {
+    "id": "builtin_text-nuo2vk",
+    "formData": {
+      "text$it": "Ecco le foto attualmente associate a questa segnalazione:",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-16T16:20:55.664Z",
+    "modifiedOn": "2021-10-16T16:20:55.664Z"
+  },
+  {
+    "id": "builtin_text-SW_lb3",
+    "formData": {
+      "text$it": "La foto specificata non esiste. Scelga, tra le opzioni che compaiono a schermo, quella con il numero corrispondente alla foto che si desidera eliminare.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-18T10:54:47.719Z",
+    "modifiedOn": "2021-10-18T10:54:47.719Z"
+  },
+  {
+    "id": "builtin_text-r6GaNs",
+    "formData": {
+      "text$it": "La foto è stata rimossa.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-18T12:05:50.048Z",
+    "modifiedOn": "2021-11-01T17:45:54.859Z"
+  },
+  {
+    "id": "builtin_text-Lh6HJs",
+    "formData": {
+      "text$it": "La sessione è scaduta, pertanto la conversazione riprenderà dall'inizio.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-23T16:18:50.373Z",
+    "modifiedOn": "2021-10-23T16:18:50.373Z"
+  },
+  {
+    "id": "builtin_text-vxkDUe",
+    "formData": {
+      "text$it": "Questo messaggio viene inviato all'utente nel momento in cui il flusso di conversazione entra in questo nodo.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-23T16:22:12.862Z",
+    "modifiedOn": "2021-10-23T16:22:12.862Z"
+  },
+  {
+    "id": "builtin_text-A_B7ip",
+    "formData": {
+      "text$it": "Questo messaggio viene inviato all'utente nonappena egli risponde al messaggio precedente. Il flusso non esce dal nodo finchè questo non accade.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-23T16:23:35.727Z",
+    "modifiedOn": "2021-10-23T16:23:35.727Z"
+  },
+  {
+    "id": "builtin_text-yqq3H1",
+    "formData": {
+      "text$it": "Questo campo supporta solo messaggi di testo.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-25T13:51:06.792Z",
+    "modifiedOn": "2021-10-25T13:51:06.792Z"
+  },
+  {
+    "id": "builtin_text-hRhT_e",
+    "formData": {
+      "text$it": "Sono stati commessi troppi errori e la sessione è stata resettata. La conversazione ricomincerà dall'inizio.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-25T15:11:10.310Z",
+    "modifiedOn": "2021-10-25T15:11:10.310Z"
+  },
+  {
+    "id": "builtin_text-8_YNu6",
+    "formData": {
+      "text$it": "Operazione annullata.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-29T17:13:35.863Z",
+    "modifiedOn": "2021-10-29T17:13:35.863Z"
+  },
+  {
+    "id": "builtin_text-84BnnQ",
+    "formData": {
+      "text$it": "Account cancellato con successo.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-29T17:52:29.713Z",
+    "modifiedOn": "2021-10-29T17:52:29.713Z"
+  },
+  {
+    "id": "builtin_text-zx8TIK",
+    "formData": {
+      "text$it": "Ecco un riepilogo delle sue segnalazioni archiviate:",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-31T13:39:49.164Z",
+    "modifiedOn": "2021-10-31T17:07:26.215Z"
+  },
+  {
+    "id": "builtin_text-RHt3rY",
+    "formData": {
+      "text$it": "Ecco un riepilogo di tutte le sue segnalazioni:",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-31T13:40:20.959Z",
+    "modifiedOn": "2021-10-31T17:07:04.530Z"
+  },
+  {
+    "id": "builtin_text-ODGaBG",
+    "formData": {
+      "text$it": "Al momento non ha segnalazioni attive.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-31T17:06:21.536Z",
+    "modifiedOn": "2021-10-31T17:06:21.536Z"
+  },
+  {
+    "id": "builtin_text-aUdijT",
+    "formData": {
+      "text$it": "Al momento non ha segnalazioni archiviate.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-31T17:10:25.986Z",
+    "modifiedOn": "2021-10-31T17:10:25.986Z"
+  },
+  {
+    "id": "builtin_text-8OYn-X",
+    "formData": {
+      "text$it": "Non ha ancora creato nessuna segnalazione.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-10-31T17:12:03.235Z",
+    "modifiedOn": "2021-10-31T17:12:03.235Z"
+  },
+  {
+    "id": "builtin_text-5UbrtR",
+    "formData": {
+      "text$it": "Grazie per il contributo!",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-01T15:09:55.765Z",
+    "modifiedOn": "2021-11-01T15:09:55.765Z"
+  },
+  {
+    "id": "builtin_text-qB-gso",
+    "formData": {
+      "text$it": "Salve!",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-01T15:31:30.610Z",
+    "modifiedOn": "2021-11-01T18:00:43.963Z"
+  },
+  {
+    "id": "builtin_text-dwmgUi",
+    "formData": {
+      "text$it": "Grazie per il contributo!",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-01T15:32:46.398Z",
+    "modifiedOn": "2021-11-01T15:33:05.233Z"
+  },
+  {
+    "id": "builtin_text-deIRUN",
+    "formData": {
+      "text$it": "La foto è stata aggiunta.",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-01T17:47:39.013Z",
+    "modifiedOn": "2021-11-01T17:47:39.013Z"
+  },
+  {
+    "id": "builtin_text-Dv69Fi",
+    "formData": {
+      "text$it": "no_photos: {{temp.no_photos}}",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-02T16:19:23.563Z",
+    "modifiedOn": "2021-11-02T16:19:23.563Z"
+  },
+  {
+    "id": "builtin_text-6jAl1G",
+    "formData": {
+      "text$it": "A",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-02T16:21:25.623Z",
+    "modifiedOn": "2021-11-02T16:21:25.623Z"
+  },
+  {
+    "id": "builtin_text-NTouv-",
+    "formData": {
+      "text$it": "B",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-02T16:21:45.873Z",
+    "modifiedOn": "2021-11-02T16:21:45.873Z"
+  },
+  {
+    "id": "builtin_text-vhk3i7",
+    "formData": {
+      "text$it": "Nome utente: {{temp.user_name}}",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-06T13:35:53.905Z",
+    "modifiedOn": "2021-11-07T10:19:33.529Z"
+  },
+  {
+    "id": "builtin_text-znt8zu",
+    "formData": {
+      "text$it": "{{{temp.date}}}",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-08T16:37:57.503Z",
+    "modifiedOn": "2021-11-08T16:38:16.295Z"
+  },
+  {
+    "id": "builtin_text-CebDBs",
+    "formData": {
+      "text$it": "Arrivederci!",
+      "markdown$it": true,
+      "typing$it": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-11-09T16:26:15.144Z",
+    "modifiedOn": "2021-11-09T16:26:15.144Z"
+  }
+]

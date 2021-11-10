@@ -1,0 +1,22 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": []
+  },
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "57b6d12e9d",
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_text-Lh6HJs",
+        "builtin/resetSession {}"
+      ],
+      "onReceive": null,
+      "next": [],
+      "type": "standard"
+    }
+  ]
+}

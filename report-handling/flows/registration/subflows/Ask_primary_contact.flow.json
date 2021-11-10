@@ -1,0 +1,243 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "d4c7c235b5",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "choose_first_contact"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "1e22d90f36",
+      "name": "ask_phone_number",
+      "next": [
+        {
+          "condition": "temp.is_phone_number  == true",
+          "node": "confirm_phone_number"
+        },
+        {
+          "condition": "temp.is_phone_number  == false",
+          "node": "invalid_phone_number"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-bnEOq0"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"primary_contact\",\"value\":\"{{{event.payload.text}}}\"}",
+        "Validation/validate_phone_number {}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "637a7455ec",
+      "name": "ask_email_address",
+      "next": [
+        {
+          "condition": "temp.is_email_address   == true",
+          "node": "confirm_email_address"
+        },
+        {
+          "condition": "temp.is_email_address    == false",
+          "node": "invalid_email_address"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-fQkhMI"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"primary_contact\",\"value\":\"{{{event.payload.text}}}\"}",
+        "Validation/validate_email_address {}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "3952b3f90d",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_phone_number",
+      "flow": "skills/choice-86e89c.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-524dwjmb3o'] == \"confirm\"",
+          "node": "contact_inserted"
+        },
+        {
+          "caption": "User picked [edit]",
+          "condition": "temp['skill-choice-ret-524dwjmb3o'] == \"edit\"",
+          "node": "ask_phone_number"
+        },
+        {
+          "caption": "User picked [abort_p...]",
+          "condition": "temp['skill-choice-ret-524dwjmb3o'] == \"abort_phone\"",
+          "node": "choose_first_contact"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-524dwjmb3o'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "e644b6011d",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_email_address",
+      "flow": "skills/choice-56a735.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-ykx0ixcqxy'] == \"confirm\"",
+          "node": "contact_inserted"
+        },
+        {
+          "caption": "User picked [edit]",
+          "condition": "temp['skill-choice-ret-ykx0ixcqxy'] == \"edit\"",
+          "node": "ask_email_address"
+        },
+        {
+          "caption": "User picked [abort_e...]",
+          "condition": "temp['skill-choice-ret-ykx0ixcqxy'] == \"abort_email\"",
+          "node": "choose_first_contact"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-ykx0ixcqxy'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "2d01bcdf2c",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "invalid_phone_number",
+      "flow": "skills/choice-dc7101.flow.json",
+      "next": [
+        {
+          "caption": "User picked [retry]",
+          "condition": "temp['skill-choice-ret-i7s8ooq19m'] == \"retry\"",
+          "node": "ask_phone_number"
+        },
+        {
+          "caption": "User picked [abort_p...]",
+          "condition": "temp['skill-choice-ret-i7s8ooq19m'] == \"abort_phone\"",
+          "node": "choose_first_contact"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-i7s8ooq19m'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "b69dcd89f5",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "invalid_email_address",
+      "flow": "skills/choice-414a7d.flow.json",
+      "next": [
+        {
+          "caption": "User picked [retry]",
+          "condition": "temp['skill-choice-ret-70kx0ol21j'] == \"retry\"",
+          "node": "ask_email_address"
+        },
+        {
+          "caption": "User picked [abort_e...]",
+          "condition": "temp['skill-choice-ret-70kx0ol21j'] == \"abort_email\"",
+          "node": "choose_first_contact"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-70kx0ol21j'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "02b6f68541",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "choose_first_contact",
+      "flow": "skills/choice-d751fc.flow.json",
+      "next": [
+        {
+          "caption": "User picked [type_ph...]",
+          "condition": "temp['skill-choice-ret-z004khoc8c'] == \"type_phone\"",
+          "node": "ask_phone_number"
+        },
+        {
+          "caption": "User picked [type_em...]",
+          "condition": "temp['skill-choice-ret-z004khoc8c'] == \"type_email\"",
+          "node": "ask_email_address"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-z004khoc8c'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "ab6c863775",
+      "name": "contact_inserted",
+      "next": [
+        {
+          "condition": "true",
+          "node": "registration/Registration.flow.json#primary_contact_inserted"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "temp.error == true",
+        "node": "error.flow.json"
+      }
+    ]
+  },
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "d24288bd31",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "registration/subflows/Ask_primary_contact.flow.json"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "skill-9bb3ee",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "should_add_secondary_contact",
+      "flow": "skills/choice-9bb3ee.flow.json",
+      "next": [
+        {
+          "caption": "User picked [yes]",
+          "condition": "temp['skill-choice-ret-vvhhtcnb18'] == \"yes\"",
+          "node": "registration/subflows/Ask_secondary_contact.flow.json"
+        },
+        {
+          "caption": "User picked [no]",
+          "condition": "temp['skill-choice-ret-vvhhtcnb18'] == \"no\"",
+          "node": "ask_personal_info"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-vvhhtcnb18'] == \"abort\"",
+          "node": "abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "6c27dea96a",
+      "name": "review_info",
+      "next": [
+        {
+          "condition": "true",
+          "node": "confirm_info"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-ZZpsdY"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "skill-0ff353",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_info",
+      "flow": "skills/choice-0ff353.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-2fbo1jzote'] == \"confirm\"",
+          "node": "add_user"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-2fbo1jzote'] == \"abort\"",
+          "node": "abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "cbea1647e4",
+      "name": "add_user",
+      "next": [
+        {
+          "condition": "true",
+          "node": "registration_succesful"
+        }
+      ],
+      "onEnter": [
+        "Database/add_user {}",
+        "builtin/setVariable {\"type\":\"user\",\"name\":\"id\",\"value\":\"{{event.target}}\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "0355682e48",
+      "name": "registration_succesful",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-vsMVu4"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "504905f533",
+      "name": "abort_registration",
+      "next": [],
+      "onEnter": [
+        "say #!builtin_text-rM_f9I",
+        "builtin/resetSession {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "563a72c474",
+      "name": "return",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json#should_continue"
+        }
+      ],
+      "onEnter": [
+        "builtin/resetSession {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "b32b2e6e21",
+      "name": "primary_contact_inserted",
+      "next": [
+        {
+          "condition": "true",
+          "node": "should_add_secondary_contact"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "26c233a04f",
+      "name": "secondary_contact_inserted",
+      "next": [
+        {
+          "condition": "true",
+          "node": "ask_personal_info"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "b26ae19e21",
+      "name": "personal_info_inserted",
+      "next": [
+        {
+          "condition": "true",
+          "node": "review_info"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "9861e0c0ef",
+      "name": "secondary_contact_not_inserted",
+      "next": [
+        {
+          "condition": "true",
+          "node": "ask_personal_info"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "6f25066b99",
+      "name": "ask_personal_info",
+      "next": [
+        {
+          "condition": "true",
+          "node": "registration/subflows/Ask_personal_info.flow.json"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "b63a3447f8",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "choose_secondary_contact"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "c351942c50",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "choose_secondary_contact",
+      "flow": "skills/choice-f8d83c.flow.json",
+      "next": [
+        {
+          "caption": "User picked [type_ph...]",
+          "condition": "temp['skill-choice-ret-uctk9zcow0'] == \"type_phone\"",
+          "node": "ask_phone_number"
+        },
+        {
+          "caption": "User picked [type_em...]",
+          "condition": "temp['skill-choice-ret-uctk9zcow0'] == \"type_email\"",
+          "node": "ask_email_address"
+        },
+        {
+          "caption": "User picked [skip]",
+          "condition": "temp['skill-choice-ret-uctk9zcow0'] == \"skip\"",
+          "node": "empty_secondary_contact"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-uctk9zcow0'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "13b49b2983",
+      "name": "ask_email_address",
+      "next": [
+        {
+          "condition": "temp.is_email_address  == true",
+          "node": "confirm_email_address"
+        },
+        {
+          "condition": "temp.is_email_address  == false",
+          "node": "invalid_email_address"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-fQkhMI"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"secondary_contact\",\"value\":\"{{{event.payload.text}}}\"}",
+        "Validation/validate_email_address {}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "8c068850a2",
+      "name": "ask_phone_number",
+      "next": [
+        {
+          "condition": "temp.is_phone_number  == true",
+          "node": "confirm_phone_number"
+        },
+        {
+          "condition": "temp.is_phone_number   == false",
+          "node": "invalid_phone_number"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-bnEOq0"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"secondary_contact\",\"value\":\"{{{event.payload.text}}}\"}",
+        "Validation/validate_phone_number {}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "044aed8318",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_email_address",
+      "flow": "skills/choice-9a9adc.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-bxtikvt3e2'] == \"confirm\"",
+          "node": "secondary_contact_inserted"
+        },
+        {
+          "caption": "User picked [edit]",
+          "condition": "temp['skill-choice-ret-bxtikvt3e2'] == \"edit\"",
+          "node": "ask_email_address"
+        },
+        {
+          "caption": "User picked [abort_e...]",
+          "condition": "temp['skill-choice-ret-bxtikvt3e2'] == \"abort_email\"",
+          "node": "choose_secondary_contact"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-bxtikvt3e2'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "dd1d60380f",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "confirm_phone_number",
+      "flow": "skills/choice-6d06b2.flow.json",
+      "next": [
+        {
+          "caption": "User picked [confirm]",
+          "condition": "temp['skill-choice-ret-btunf2z3va'] == \"confirm\"",
+          "node": "secondary_contact_inserted"
+        },
+        {
+          "caption": "User picked [edit]",
+          "condition": "temp['skill-choice-ret-btunf2z3va'] == \"edit\"",
+          "node": "ask_phone_number"
+        },
+        {
+          "caption": "User picked [abort_p...]",
+          "condition": "temp['skill-choice-ret-btunf2z3va'] == \"abort_phone\"",
+          "node": "choose_secondary_contact"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-btunf2z3va'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "be976ff14d",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "invalid_phone_number",
+      "flow": "skills/choice-547333.flow.json",
+      "next": [
+        {
+          "caption": "User picked [retry]",
+          "condition": "temp['skill-choice-ret-pmaueb7pkl'] == \"retry\"",
+          "node": "ask_phone_number"
+        },
+        {
+          "caption": "User picked [abort_p...]",
+          "condition": "temp['skill-choice-ret-pmaueb7pkl'] == \"abort_phone\"",
+          "node": "choose_secondary_contact"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-pmaueb7pkl'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "5460ad4cfc",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "invalid_email_address",
+      "flow": "skills/choice-6830c7.flow.json",
+      "next": [
+        {
+          "caption": "User picked [retry]",
+          "condition": "temp['skill-choice-ret-bmj4uztp5c'] == \"retry\"",
+          "node": "ask_email_address"
+        },
+        {
+          "caption": "User picked [abort_e...]",
+          "condition": "temp['skill-choice-ret-bmj4uztp5c'] == \"abort_email\"",
+          "node": "choose_secondary_contact"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-bmj4uztp5c'] == \"abort\"",
+          "node": "registration/Registration.flow.json#abort_registration"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "9fc83a485e",
+      "name": "empty_secondary_contact",
+      "next": [
+        {
+          "condition": "true",
+          "node": "registration/Registration.flow.json#secondary_contact_skipped"
+        }
+      ],
+      "onEnter": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"secondary_contact\",\"value\":\"Non inserito\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "8f3028728a",
+      "name": "secondary_contact_inserted",
+      "next": [
+        {
+          "condition": "true",
+          "node": "registration/Registration.flow.json#secondary_contact_inserted"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

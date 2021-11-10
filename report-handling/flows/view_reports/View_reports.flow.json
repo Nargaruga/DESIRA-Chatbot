@@ -1,0 +1,245 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "temp.error == true",
+        "node": "error.flow.json"
+      }
+    ]
+  },
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "2fa5ea40d7",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "choose_report_type"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "b23d92c087",
+      "name": "retrieve_active",
+      "next": [
+        {
+          "condition": "temp.reports == null || temp.reports.length == 0",
+          "node": "no_active_reports"
+        },
+        {
+          "condition": "true",
+          "node": "show_active_reports"
+        }
+      ],
+      "onEnter": [
+        "Database/fetch_reports {\"report_type\":\"active\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "skill-d0e5b6",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "choose_report_type",
+      "flow": "skills/choice-d0e5b6.flow.json",
+      "next": [
+        {
+          "caption": "User picked [active]",
+          "condition": "temp['skill-choice-ret-bt5s76v2k0'] == \"active\"",
+          "node": "retrieve_active"
+        },
+        {
+          "caption": "User picked [archived]",
+          "condition": "temp['skill-choice-ret-bt5s76v2k0'] == \"archived\"",
+          "node": "retrieve_archived"
+        },
+        {
+          "caption": "User picked [all]",
+          "condition": "temp['skill-choice-ret-bt5s76v2k0'] == \"all\"",
+          "node": "retrieve_all"
+        },
+        {
+          "caption": "User picked [abort]",
+          "condition": "temp['skill-choice-ret-bt5s76v2k0'] == \"abort\"",
+          "node": "abort"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Too_many_errors.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "5740f7ec73",
+      "name": "retrieve_archived",
+      "next": [
+        {
+          "condition": "temp.reports == null || temp.reports.length == 0",
+          "node": "no_archived_reports"
+        },
+        {
+          "condition": "true",
+          "node": "show_archived_reports"
+        }
+      ],
+      "onEnter": [
+        "Database/fetch_reports {\"report_type\":\"archived\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "c08f60e5a5",
+      "name": "retrieve_all",
+      "next": [
+        {
+          "condition": "temp.reports == null || temp.reports.length == 0",
+          "node": "no_reports"
+        },
+        {
+          "condition": "true",
+          "node": "show_all_reports"
+        }
+      ],
+      "onEnter": [
+        "Database/fetch_reports {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "a233cb7cb9",
+      "name": "abort",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-8_YNu6"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "a5fe96d581",
+      "name": "no_active_reports",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-ODGaBG"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "d88ec75bbb",
+      "name": "no_archived_reports",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-aUdijT"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "0f90883f46",
+      "name": "no_reports",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-8OYn-X"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "06fa33c51e",
+      "name": "show_active_reports",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-g-3N5g",
+        "Util/display_reports {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "c8b2ac30ef",
+      "name": "show_archived_reports",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-zx8TIK",
+        "Util/display_reports {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "95a69970c9",
+      "name": "show_all_reports",
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-RHt3rY",
+        "Util/display_reports {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "b190187e11",
+      "name": "return",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json#should_continue"
+        }
+      ],
+      "onEnter": [
+        "builtin/resetSession {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}
