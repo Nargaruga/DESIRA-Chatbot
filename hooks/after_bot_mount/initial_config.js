@@ -1,9 +1,9 @@
   //URI of the MongoDB instance
-  const DB_URI = 'mongodb+srv://Example:atlasTest@chatbottest.onzoq.mongodb.net/exampleDB?retryWrites=true&w=majority'
+  const DB_URI = ''
   //Name of the database
-  const DB_NAME = 'exampleDB'
+  const DB_NAME = ''
   //Path to which images will be temporarily saved
-  const IMAGE_PATH = '/home/leonardo/Pictures/'
+  const IMAGE_PATH = ''
 
   const initialConfig = async () => {
     await bp.kvs.forBot(botId).set('db_uri', DB_URI)

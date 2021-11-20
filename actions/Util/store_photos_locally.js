@@ -1,5 +1,4 @@
   const fs = require('fs')
-  const base_path = '/home/leonardo/Pictures/'
 
   /**
    * Saves the images contained in temp.photos on the local filesystem
@@ -8,6 +7,8 @@
    */
   const storePhotosLocally = async () => {
     if (temp.photos == null) return
+
+    const base_path = await bp.kvs.forBot(event.botId).get('image_path')
 
     //Save each photo to file with a filename in the form id_n, where id is the user's id and n is the photo's number
     for (var i = 0; i < temp.photos.length; i++) {
