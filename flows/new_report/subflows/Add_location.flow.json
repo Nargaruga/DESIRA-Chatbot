@@ -87,7 +87,7 @@
         "say #!builtin_text-q6h3cT"
       ],
       "onReceive": [
-        "builtin/setVariable {\"type\":\"temp\",\"name\":\"location\",\"value\":\"{{event.payload.text}}\"}",
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"location\",\"value\":\"{{{event.payload.text}}}\"}",
         "builtin/setVariable {\"type\":\"temp\",\"name\":\"is_coordinates\",\"value\":\"false\"}",
         "Validation/check_if_text {}"
       ],

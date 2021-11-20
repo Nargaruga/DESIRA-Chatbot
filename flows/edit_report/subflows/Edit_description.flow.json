@@ -37,7 +37,7 @@
         "say #!builtin_text-G3Zw33"
       ],
       "onReceive": [
-        "builtin/setVariable {\"type\":\"temp\",\"name\":\"description\",\"value\":\"{{event.payload.text}}\"}",
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"description\",\"value\":\"{{{event.payload.text}}}\"}",
         "Validation/check_if_text {}"
       ],
       "type": "standard"

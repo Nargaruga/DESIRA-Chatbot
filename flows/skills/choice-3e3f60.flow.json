@@ -6,7 +6,7 @@
   "startNode": "entry",
   "skillData": {
     "randomId": "raick5kw42",
-    "contentId": "builtin_single-choice-fnuNit",
+    "contentId": "builtin_single-choice-Z3XEoh",
     "invalidContentId": "builtin_text-rL0dB6",
     "keywords": {
       "confirm": [
@@ -15,11 +15,15 @@
       ],
       "edit": [
         "edit",
-        "Cambia foto"
+        "Modifica"
       ],
-      "abort_single": [
-        "abort_single",
-        "Annulla questa modifica"
+      "skip": [
+        "skip",
+        "Annulla inserimento foto"
+      ],
+      "abort": [
+        "abort",
+        "Annulla segnalazione"
       ]
     },
     "config": {
@@ -32,7 +36,7 @@
     {
       "name": "entry",
       "onEnter": [
-        "say #!builtin_single-choice-fnuNit {\"skill\":\"choice\"}"
+        "say #!builtin_single-choice-Z3XEoh {\"skill\":\"choice\"}"
       ],
       "next": [
         {
@@ -40,12 +44,12 @@
           "node": "parse"
         }
       ],
-      "id": "311676"
+      "id": "522799"
     },
     {
       "name": "parse",
       "onReceive": [
-        "basic-skills/choice_parse_answer {\"randomId\":\"raick5kw42\",\"contentId\":\"builtin_single-choice-fnuNit\",\"invalidContentId\":\"builtin_text-rL0dB6\",\"keywords\":{\"confirm\":[\"confirm\",\"Conferma\"],\"edit\":[\"edit\",\"Cambia foto\"],\"abort_single\":[\"abort_single\",\"Annulla questa modifica\"]},\"config\":{\"nbMaxRetries\":100,\"repeatChoicesOnInvalid\":true,\"variableName\":\"\"}}"
+        "basic-skills/choice_parse_answer {\"randomId\":\"raick5kw42\",\"contentId\":\"builtin_single-choice-Z3XEoh\",\"invalidContentId\":\"builtin_text-rL0dB6\",\"keywords\":{\"confirm\":[\"confirm\",\"Conferma\"],\"edit\":[\"edit\",\"Modifica\"],\"skip\":[\"skip\",\"Annulla inserimento foto\"],\"abort\":[\"abort\",\"Annulla segnalazione\"]},\"config\":{\"nbMaxRetries\":100,\"repeatChoicesOnInvalid\":true,\"variableName\":\"\"}}"
       ],
       "next": [
         {
@@ -67,7 +71,7 @@
         }
       ],
       "onEnter": [],
-      "id": "471079"
+      "id": "495178"
     },
     {
       "name": "invalid",
@@ -84,13 +88,13 @@
           "node": "sorry"
         }
       ],
-      "id": "667335"
+      "id": "612839"
     },
     {
       "name": "sorry",
       "onEnter": [
         "say #!builtin_text-rL0dB6 {}",
-        "say #!builtin_single-choice-fnuNit {\"skill\":\"choice\"}"
+        "say #!builtin_single-choice-Z3XEoh {\"skill\":\"choice\"}"
       ],
       "next": [
         {
@@ -98,7 +102,7 @@
           "node": "parse"
         }
       ],
-      "id": "877992"
+      "id": "154713"
     }
   ]
 }

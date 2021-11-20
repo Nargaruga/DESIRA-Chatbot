@@ -40,7 +40,7 @@
         {
           "caption": "User picked [no]",
           "condition": "temp['skill-choice-ret-vvhhtcnb18'] == \"no\"",
-          "node": "ask_personal_info"
+          "node": "no_secondary_contact"
         },
         {
           "caption": "User picked [abort]",
@@ -131,7 +131,12 @@
     {
       "id": "504905f533",
       "name": "abort_registration",
-      "next": [],
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json#dont_register"
+        }
+      ],
       "onEnter": [
         "say #!builtin_text-rM_f9I",
         "builtin/resetSession {}"
@@ -195,14 +200,16 @@
     },
     {
       "id": "9861e0c0ef",
-      "name": "secondary_contact_not_inserted",
+      "name": "no_secondary_contact",
       "next": [
         {
           "condition": "true",
           "node": "ask_personal_info"
         }
       ],
-      "onEnter": [],
+      "onEnter": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"secondary_contact\",\"value\":\"\\\"Non inserito\\\"\"}"
+      ],
       "onReceive": null,
       "type": "standard"
     },

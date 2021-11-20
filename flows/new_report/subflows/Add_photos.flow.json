@@ -23,7 +23,7 @@
       "next": [
         {
           "condition": "true",
-          "node": "photo_insertion_over"
+          "node": "photo_insertion_skipped"
         }
       ],
       "onEnter": [
@@ -73,7 +73,7 @@
         {
           "caption": "User picked [skip]",
           "condition": "temp['skill-choice-ret-raick5kw42'] == \"skip\"",
-          "node": "no_photo"
+          "node": "photo_insertion_over"
         },
         {
           "caption": "User picked [abort]",
@@ -173,6 +173,19 @@
         {
           "condition": "true",
           "node": "new_report/New_report.flow.json#photo_insertion_over"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "9171b9a748",
+      "name": "photo_insertion_skipped",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json#photo_insertion_skipped"
         }
       ],
       "onEnter": [],

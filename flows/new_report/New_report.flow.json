@@ -40,7 +40,7 @@
         {
           "caption": "User picked [no]",
           "condition": "temp['skill-choice-ret-ocfp1mbcf3'] == \"no\"",
-          "node": "photo_insertion_over"
+          "node": "photo_insertion_skipped"
         },
         {
           "caption": "User picked [abort_r...]",
@@ -210,6 +210,21 @@
         }
       ],
       "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "f2c238ed29",
+      "name": "photo_insertion_skipped",
+      "next": [
+        {
+          "condition": "true",
+          "node": "review_report"
+        }
+      ],
+      "onEnter": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"count\",\"value\":\"Nessuna\"}"
+      ],
       "onReceive": null,
       "type": "standard"
     }

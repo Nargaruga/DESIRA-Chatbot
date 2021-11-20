@@ -37,7 +37,7 @@
         {
           "caption": "User picked [skip]",
           "condition": "temp['skill-choice-ret-uctk9zcow0'] == \"skip\"",
-          "node": "empty_secondary_contact"
+          "node": "registration/Registration.flow.json#no_secondary_contact"
         },
         {
           "caption": "User picked [abort]",
@@ -230,21 +230,6 @@
       ],
       "onEnter": null,
       "onReceive": null
-    },
-    {
-      "id": "9fc83a485e",
-      "name": "empty_secondary_contact",
-      "next": [
-        {
-          "condition": "true",
-          "node": "registration/Registration.flow.json#secondary_contact_skipped"
-        }
-      ],
-      "onEnter": [
-        "builtin/setVariable {\"type\":\"temp\",\"name\":\"secondary_contact\",\"value\":\"Non inserito\"}"
-      ],
-      "onReceive": null,
-      "type": "standard"
     },
     {
       "id": "8f3028728a",

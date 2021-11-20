@@ -395,7 +395,7 @@
         }
       ],
       "onEnter": [
-        "mark_for_deletion {}"
+        "Util/mark_for_deletion {}"
       ],
       "onReceive": null,
       "type": "standard"
