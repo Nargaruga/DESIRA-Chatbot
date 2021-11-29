@@ -278,7 +278,12 @@
     {
       "id": "012e053c6a",
       "name": "no_reports",
-      "next": [],
+      "next": [
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
       "onEnter": [
         "say #!builtin_text--A9teV"
       ],
